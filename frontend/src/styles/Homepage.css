@@ -1,0 +1,46 @@
+
+.home-page {
+    position: relative; /* Layer above animation */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Eagle Lake";
+    z-index: 1; /* Ensure this content appears above the animation */
+    padding: 20px; /* Add some padding */
+    color: rgb(0, 0, 0); /* Ensure text is visible over the animation */
+}
+
+/* Button container */
+.button-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    font-family: "Eagle Lake";
+    flex-direction: column;
+    margin-bottom: 20px;
+    z-index: 1; /* Ensure buttons are above the animation */
+    margin-top: 10px;
+}
+
+/* Button styling */
+.button {
+    font-size: 1.5em;
+    padding:0px 15px;
+    width: auto;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    font-family: "Eagle Lake";
+    color: rgb(55, 201, 50);
+    border-radius: 20px;
+}
+
+.reasons-container {
+    font-size: 40px;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: underline;
+}
+
