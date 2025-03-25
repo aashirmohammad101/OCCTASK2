@@ -5,7 +5,8 @@
     align-items: center;
     background: transparent;
     width: 100%;
-    font-weight: bold
+    font-weight: bold;
+    font-family:Eagle Lake, serif;
   }
   
   /* Navbar Container */

@@ -20,7 +20,7 @@ const Navbar = () => {
     <nav className="navbar">
         <Offcanvas show={show} onHide={handleClose} backdrop={true} scroll={false}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title style={{fontWeight:"bold", fontFamily:"'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"}}>Menu</Offcanvas.Title>
+          <Offcanvas.Title style={{fontWeight:"bold", fontFamily:"'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"}}>Dashboard</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
             <div className='menu-links'>
@@ -38,9 +38,9 @@ const Navbar = () => {
             <hr style={{width:"160px"}}/>
             <Link to="/" onClick={handleClose}>Contact Us</Link>
             <hr style={{width:"80px"}}/>
-            <Link to="/" onClick={handleClose}>Sign Up</Link>
+            <Link to="/register" onClick={handleClose}>Sign Up</Link>
             <br/>
-            <Link to="/" onClick={handleClose}>Log In</Link>
+            <Link to="/login" onClick={handleClose}>Log In</Link>
             </div>
         </Offcanvas.Body>
       </Offcanvas>
@@ -57,7 +57,7 @@ const Navbar = () => {
           <Link to="/">Book your consultation</Link>
           <Link to="/">Shop our products</Link>
           <Link to="/">Our Services</Link>
-          <Link to="/">Calculate your carbon footprint</Link>
+          <Link to="/carboncalculator">Calculate your carbon footprint</Link>
           <Link to="/">Home</Link>
         </div>
       </div>
