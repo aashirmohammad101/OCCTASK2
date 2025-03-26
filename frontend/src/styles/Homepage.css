@@ -1,15 +1,15 @@
 
 .home-page {
-    position: relative; /* Layer above animation */
+    position: relative; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-family: "Eagle Lake";
-    z-index: 1; /* Ensure this content appears above the animation */
+    z-index: 1; 
     padding: 20px; /* Add some padding */
-    color: rgb(0, 0, 0); /* Ensure text is visible over the animation */
+    color: rgb(0, 0, 0); 
 }
 
 /* Button container */
@@ -21,7 +21,7 @@
     font-family: "Eagle Lake";
     flex-direction: column;
     margin-bottom: 20px;
-    z-index: 1; /* Ensure buttons are above the animation */
+    z-index: 1;
     margin-top: 10px;
 }
 

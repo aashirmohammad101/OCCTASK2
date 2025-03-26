@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from 'react';
 import "../styles/Loginpage.css";
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import Navbar from "../components/Navbar";
+import { motion } from 'framer-motion';
 
 const LoginForm = () => {
     return (
         <>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
         <br/>
         <Navbar />
         <div className="login-page">
@@ -32,6 +34,7 @@ const LoginForm = () => {
                 </form>
             </div>
         </div>
+        </motion.p>
         </>
     );
 };

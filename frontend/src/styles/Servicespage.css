@@ -1,0 +1,63 @@
+.services-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .services-header h1 {
+    color: #333;
+    font-family: Eagle Lake, serif;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .service-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .service-card h3 {
+    margin: 10px 0;
+    color: #0073e6;
+  }
+  
+  .cta-section {
+    margin-top: 30px;
+    background: #15741d;
+    color: white;
+    padding: 20px;
+  }
+  
+  .appointment-button {
+    background: white;
+    color: #0073e6;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .appointment-button:hover {
+    background: #005bb5;
+    color: white;
+  }
+  
+  .footer {
+    margin-top: 20px;
+    padding: 10px;
+    background: #222;
+    color: white;
+  }

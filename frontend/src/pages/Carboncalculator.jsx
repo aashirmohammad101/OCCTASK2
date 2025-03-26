@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../components/Navbar";
+import "../styles/Carboncalculator.css";
+import { motion } from 'framer-motion';
 
 const CarbonFootprintCalculator = () => {
   const [data, setData] = useState({ transport: 0, energy: 0, food: 0, waste: 0 });
@@ -17,7 +19,8 @@ const CarbonFootprintCalculator = () => {
   };
 
   return (
-    <>
+    <div className="page">
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
     <Navbar />
     <div className="container text-center mt-5">
       <h1 className="mb-4">Carbon Footprint Calculator</h1>
@@ -35,7 +38,7 @@ const CarbonFootprintCalculator = () => {
               />
             </div>
           ))}
-          <button className="btn btn-primary w-100" onClick={calculateFootprint}>Calculate</button>
+          <button className="btn btn-success w-100" onClick={calculateFootprint}>Calculate</button>
           {result !== null && (
             <div className="mt-4">
               <h2 className="text-success">Total Footprint: {result} kg CO₂</h2>
@@ -52,7 +55,8 @@ const CarbonFootprintCalculator = () => {
         </div>
       </div>
     </div>
-    </>
+    </motion.p> 
+    </div>
   );
 };
 

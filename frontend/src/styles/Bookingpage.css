@@ -1,0 +1,47 @@
+
+  .BookingPage {
+    background-color: #ffffff; /* Light yellowish-green background */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    border-radius: 10px;
+    border: 1px solid #81c784;
+    background-color: #ffffff; /* White background for the card */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-green {
+    color: #388e3c; /* Dark green for headings */
+  }
+  
+  button {
+    background-color: #388e3c; /* Dark green button */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #2c6e49; /* Darker green on hover */
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  input, select {
+    border-radius: 5px;
+    border: 1px solid #81c784;
+  }
+  
+  input:focus, select:focus {
+    border-color: #388e3c; /* Green focus on inputs */
+    outline: none;
+  }
+  

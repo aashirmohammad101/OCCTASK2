@@ -9,9 +9,11 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+        
       </motion.div>
-      <Navbar />
       {/* Page Content */}
+      
+      <Navbar/>
       <motion.h1 style={{ color: 'black', marginTop: "30px" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

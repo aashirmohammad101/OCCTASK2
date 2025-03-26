@@ -12,6 +12,7 @@ import logo from "../components/logo.png"
 
 const Navbar = () => {
 
+    const [email, setEmail] = useState('');
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const toggleShow = () => setShow((s) => !s);
@@ -24,7 +25,7 @@ const Navbar = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
             <div className='menu-links'>
-            <Link to="/" onClick={handleClose}>Account</Link>
+            <Link to="/account" onClick={handleClose}>Account</Link>
             <hr style={{width:"65px"}}/>
             <Link to="/" onClick={handleClose}>Your Bookings</Link>
             <hr style={{width:"110px"}}/>
@@ -34,9 +35,9 @@ const Navbar = () => {
             <hr style={{width:"192px"}}/>
             <Link to="/" onClick={handleClose}>Your energy usage history</Link>
             <hr style={{width:"220px"}}/>
-            <Link to="/" onClick={handleClose}>About Us</Link>
+            <Link to="/aboutus" onClick={handleClose}>About Us</Link>
             <hr style={{width:"160px"}}/>
-            <Link to="/" onClick={handleClose}>Contact Us</Link>
+            <Link to="/contactus" onClick={handleClose}>Contact Us</Link>
             <hr style={{width:"80px"}}/>
             <Link to="/register" onClick={handleClose}>Sign Up</Link>
             <br/>
@@ -54,11 +55,12 @@ const Navbar = () => {
         <IoMdMenu />
         </Button>
         <div className="navbar-links">
-          <Link to="/">Book your consultation</Link>
+          <Link to="/booking">Book your consultation</Link>
           <Link to="/">Shop our products</Link>
-          <Link to="/">Our Services</Link>
+          <Link to="/ourservices">Our Services</Link>
           <Link to="/carboncalculator">Calculate your carbon footprint</Link>
           <Link to="/">Home</Link>
+          <p style={{color:"green"}}>Signed in as: {email}</p>
         </div>
       </div>
     </nav>

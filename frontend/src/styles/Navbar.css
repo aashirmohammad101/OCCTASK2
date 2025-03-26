@@ -21,7 +21,7 @@
   .navbar-links {
     display: flex;
     gap: 30px; /* Space between each link */
-    margin-top: 7px;
+    margin-top: 20px;
     margin-left: 50px;
   }
   
