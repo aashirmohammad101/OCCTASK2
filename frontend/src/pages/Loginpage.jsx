@@ -4,8 +4,36 @@ import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const LoginForm = () => {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:5000/api/login', formData);
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user', JSON.stringify(response.data.user));
+            navigate('/'); // Redirect to home page after successful login
+        } catch (err) {
+            setError(err.response?.data?.message || 'An error occurred during login');
+        }
+    };
+
     return (
         <>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
@@ -13,14 +41,29 @@ const LoginForm = () => {
         <Navbar />
         <div className="login-page">
             <div className="wrapper">
-                <form action="">
+                <form onSubmit={handleSubmit}>
                     <h1>Login</h1>
+                    {error && <div className="error-message">{error}</div>}
                     <div className="input-box">
-                        <input type="text" placeholder="Email" required />
+                        <input 
+                            type="email" 
+                            name="email"
+                            placeholder="Email" 
+                            required 
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
                         <FaUser className="icon" />
                     </div>
                     <div className="input-box">
-                        <input type="password" placeholder="Password" required />
+                        <input 
+                            type="password" 
+                            name="password"
+                            placeholder="Password" 
+                            required 
+                            value={formData.password}
+                            onChange={handleChange}
+                        />
                         <FaLock className="icon" />
                     </div>
                     <div className="remember-forgot">
