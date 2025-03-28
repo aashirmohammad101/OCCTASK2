@@ -52,7 +52,7 @@ const HomePage = () => {
           <img src={image2} alt="Image 2" className="image-card-img" />
           <div className="image-card-content">
             <h2>Book an installation</h2>
-            <p>Book an installation with us, we provide you the best fitters</p>
+            <p>Book an installation with us</p>
             <Link to="/learn-more">
               <button className="image-card-button">Book Now</button>
             </Link>

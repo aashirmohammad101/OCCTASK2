@@ -20,7 +20,7 @@
   /* Left Section - Navbar Links */
   .navbar-links {
     display: flex;
-    gap: 30px; /* Space between each link */
+    gap: 50px; /* Space between each link */
     margin-top: 6px;
     margin-left: 50px;
   }

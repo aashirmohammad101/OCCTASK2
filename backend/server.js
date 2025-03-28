@@ -52,6 +52,7 @@ const bookingSchema = new mongoose.Schema({
     email: { type: String, required: true },
     date: { type: Date, required: true },
     time: { type: String, required: true },
+    bookingType: { type: String, required: true }, // New field
     createdAt: { type: Date, default: Date.now },
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
@@ -141,13 +142,18 @@ app.post('/api/bookings', async (req, res) => {
         }
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const { name, email, date, time } = req.body;
+        const { name, email, date, time, bookingType } = req.body; // Include bookingType
+
+        if (!name || !email || !date || !time || !bookingType) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
 
         const booking = new Booking({
             name,
             email,
             date,
             time,
+            bookingType, // Save bookingType
             userId: decoded.userId // Associate booking with the logged-in user
         });
 
@@ -179,4 +185,26 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
     console.log('Environment:', process.env.NODE_ENV || 'development');
+});
+
+app.delete('/api/bookings/:id', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const booking = await Booking.findOne({ _id: req.params.id, userId: decoded.userId });
+
+        if (!booking) {
+            return res.status(404).json({ message: 'Booking not found' });
+        }
+
+        await Booking.deleteOne({ _id: req.params.id });
+        res.status(200).json({ message: 'Booking canceled successfully' });
+    } catch (error) {
+        console.error('Error canceling booking:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
 });

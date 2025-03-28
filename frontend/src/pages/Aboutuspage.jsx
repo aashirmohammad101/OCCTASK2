@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Aboutuspage.css";
 import Navbar from "../components/Navbar.jsx"
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
@@ -33,7 +34,9 @@ const AboutUs = () => {
       </div>
       <div className="cta-section">
         <h2>Join Us in Building a Sustainable Future</h2>
+        <Link to={"/contactus"} >
         <button className="contact-button">Contact Us</button>
+        </Link>
       </div>
       <footer className="footer">
         <p>Contact us at: info@example.com | Call: 1800 254 2681</p>
