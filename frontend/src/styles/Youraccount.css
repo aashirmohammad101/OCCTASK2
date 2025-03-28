@@ -1,0 +1,23 @@
+.your-account {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.your-account h1 {
+    margin-bottom: 20px;
+}
+
+.account-details {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: left;
+}
+
+.account-details p {
+    margin: 10px 0;
+    font-size: 16px;
+}

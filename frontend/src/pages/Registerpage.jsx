@@ -45,7 +45,7 @@ const RegisterForm = () => {
 
     return (
         <>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+        <motion.p initial={{ opacity: 0,y:50 }} animate={{ opacity: 1,y:0 }} transition={{ duration: 1 }}>
         <br/>
         <Navbar />
         <div className="register-page">

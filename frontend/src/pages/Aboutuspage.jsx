@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const AboutUs = () => {
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+    <motion.div initial={{ opacity: 0,y:50 }} animate={{ opacity: 1,y:0 }} transition={{ duration: 1 }}>
     <div className="page">
         <Navbar/>
     <div className="about-container">

@@ -58,9 +58,8 @@ function BookingPage() {
 
   return (
     <div className='page'>
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+    <motion.div initial={{ opacity: 0,y:50 }} animate={{ opacity: 1,y:0 }} transition={{ duration: 1.5 }}>
       <Navbar />
-    
     <div className="BookingPage">
       <div className="container">
         <div className="row justify-content-center">

@@ -1,7 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Navbar.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,9 +12,32 @@ import logo from "../components/logo.png"
 const Navbar = () => {
 
     const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const toggleShow = () => setShow((s) => !s);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      // Retrieve user data from localStorage
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user && user.email) {
+          setEmail(user.email);
+      }
+      if (user && user.name){
+        setName(user.name)
+      }
+  }, []);
+
+
+  const handleLogout = () => {
+    // Clear user data from localStorage
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    setEmail(''); // Reset email state
+    window.location.reload();
+    navigate('/login'); // Redirect to login page
+    };
 
   return (
     <nav className="navbar">
@@ -25,15 +47,19 @@ const Navbar = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
             <div className='menu-links'>
-            <Link to="/account" onClick={handleClose}>Account</Link>
+            <Link to="/" onClick={handleClose}>Home</Link>
             <hr style={{width:"65px"}}/>
-            <Link to="/" onClick={handleClose}>Your Bookings</Link>
+            <Link to="/youraccount" onClick={handleClose}>Account</Link>
+            <hr style={{width:"65px"}}/>
+            <Link to="/yourbookings" onClick={handleClose}>Your Bookings</Link>
             <hr style={{width:"110px"}}/>
             <Link to="/" onClick={handleClose}>Shop Our Products</Link>
             <hr style={{width:"145px"}}/>
             <Link to="/" onClick={handleClose}>Carbon Footprint History</Link>
             <hr style={{width:"192px"}}/>
             <Link to="/" onClick={handleClose}>Your energy usage history</Link>
+            <hr style={{width:"220px"}}/>
+            <Link to="/evchargingmap" onClick={handleClose}>EV Charging Stations</Link>
             <hr style={{width:"220px"}}/>
             <Link to="/aboutus" onClick={handleClose}>About Us</Link>
             <hr style={{width:"160px"}}/>
@@ -42,7 +68,10 @@ const Navbar = () => {
             <Link to="/register" onClick={handleClose}>Sign Up</Link>
             <br/>
             <Link to="/login" onClick={handleClose}>Log In</Link>
+            <br></br>
             </div>
+            {email && <Link onClick={handleLogout} className="logout-button">Log-out</Link>}
+            
         </Offcanvas.Body>
       </Offcanvas>
       <div className="navbar-container">
@@ -60,7 +89,9 @@ const Navbar = () => {
           <Link to="/ourservices">Our Services</Link>
           <Link to="/carboncalculator">Calculate your carbon footprint</Link>
           <Link to="/">Home</Link>
-          <p style={{color:"green"}}>Signed in as: {email}</p>
+          <span>
+            Signed in as: <span style={{ color: "green" }}>{name || "Guest"}</span>
+          </span>
         </div>
       </div>
     </nav>

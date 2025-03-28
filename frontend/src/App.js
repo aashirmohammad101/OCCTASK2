@@ -9,6 +9,9 @@ import BookingPage from "./pages/Bookingpage.jsx";
 import ContactPage from "./pages/Contactpage.jsx"
 import AboutUs from "./pages/Aboutuspage.jsx";
 import Services from "./pages/Servicespage.jsx";
+import Yourbookings from "./pages/Yourbookings.jsx";
+import Youraccount from "./pages/Youraccount.jsx";
+import EVchargingmap from "./pages/EVchargingmap.jsx"
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
         <Route path="/carboncalculator" element={<Carboncalculator />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/ourservices" element={<Services />} />
+        <Route path="/yourbookings" element={<Yourbookings />} />
+        <Route path="/youraccount" element={<Youraccount />} />
+        <Route path="/evchargingmap" element={<EVchargingmap />} />
       </Routes>
     </Router>
   );

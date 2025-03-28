@@ -1,0 +1,78 @@
+.ev-charging-map {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .map-and-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .station-list {
+    width: 35%;
+    max-height: 600px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .station-list h2 {
+    margin-bottom: 10px;
+  }
+  
+  .station-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .station-list li {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+.cta-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #929faa;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.cta-section h2 {
+  margin-bottom: 15px;
+}
+
+.appointment-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .appointment-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .appointment-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+.footer {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #000000;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+.footer p {
+  margin: 5px 0;
+}

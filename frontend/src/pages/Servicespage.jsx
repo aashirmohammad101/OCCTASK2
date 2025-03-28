@@ -1,7 +1,8 @@
 import React from "react";
 import "../styles/Servicespage.css";
-import Navbar from "../components/Navbar.jsx"
+import Navbar from "../components/Navbar.jsx";
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -33,32 +34,36 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="page"> 
-    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
-        <Navbar/>
-    <div className="services-container">
-      <div className="services-header">
-        <h1>Our Services</h1>
-      </div>
-      <div className="services-grid">
-        {services.map((service, index) => (
-          <div className="service-card" key={index}>
-            <img src={service.image} alt={service.title} />
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
+    <div className="page">
+      <motion.p initial={{ opacity: 0,y:50 }} animate={{ opacity: 1,y:0 }} transition={{ duration: 1 }}>
+        <Navbar />
+        <div className="services-container">
+          <div className="services-header">
+            <h1>Our Services</h1>
           </div>
-        ))}
-      </div>
-      <div className="cta-section">
-        <h2>Book Now and Get 15% Off Any Service</h2>
-        <button className="appointment-button">Book a consultation</button>
-      </div>
-      <footer className="footer">
-        <p>Contact us at: info@example.com | Call: 1800 254 2681</p>
-        <p>123 Fifth Avenue, New York, NY 10160, USA</p>
-      </footer>
-    </div>
-    </motion.p>
+          <div className="services-grid">
+            {services.map((service, index) => (
+              <div className="service-card" key={index}>
+                <img src={service.image} alt={service.title} />
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* CTA Section */}
+        <div className="cta-section">
+          <h2>Ready to Transform Your Energy Usage?</h2>
+          <p>Contact us today to schedule a consultation or learn more about our services.</p>
+          <Link to={"/booking"}>
+          <button className="appointment-button">Book an Appointment</button>
+          </Link>
+        </div>
+        {/* Footer */}
+        <div className="footer">
+          <p>&copy; 2025 Energy Solutions Inc. All rights reserved.</p>
+        </div>
+      </motion.p>
     </div>
   );
 };

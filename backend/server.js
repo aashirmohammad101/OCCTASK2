@@ -52,7 +52,8 @@ const bookingSchema = new mongoose.Schema({
     email: { type: String, required: true },
     date: { type: Date, required: true },
     time: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
 const Booking = mongoose.model('Booking', bookingSchema);
@@ -116,7 +117,7 @@ app.post('/api/login', async (req, res) => {
         const token = jwt.sign(
             { userId: user._id },
             process.env.JWT_SECRET,
-            { expiresIn: '1h' }
+            { expiresIn: '7h' }
         );
 
         console.log('Login successful for:', email);
@@ -134,40 +135,43 @@ app.post('/api/login', async (req, res) => {
 // Create Booking
 app.post('/api/bookings', async (req, res) => {
     try {
-        console.log('Booking request received:', req.body);
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const { name, email, date, time } = req.body;
+
         const booking = new Booking({
             name,
             email,
             date,
-            time
+            time,
+            userId: decoded.userId // Associate booking with the logged-in user
         });
+
         await booking.save();
-        console.log('Booking created successfully for:', email);
         res.status(201).json({ message: 'Booking created successfully', booking });
     } catch (error) {
         console.error('Booking creation error:', error);
-        res.status(500).json({ 
-            message: 'Server error', 
-            error: error.message,
-            stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
-        });
+        res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
 
 // Get Bookings
-app.get('/api/bookings', async (req, res) => {
+app.get('/api/bookings/user', async (req, res) => {
     try {
-        const bookings = await Booking.find();
-        console.log('Retrieved bookings count:', bookings.length);
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const bookings = await Booking.find({ userId: decoded.userId });
         res.json(bookings);
     } catch (error) {
-        console.error('Error retrieving bookings:', error);
-        res.status(500).json({ 
-            message: 'Server error', 
-            error: error.message,
-            stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
-        });
+        console.error('Error retrieving user bookings:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
 

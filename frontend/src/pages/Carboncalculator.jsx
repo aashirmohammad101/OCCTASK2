@@ -20,7 +20,7 @@ const CarbonFootprintCalculator = () => {
 
   return (
     <div className="page">
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+      <motion.p initial={{ opacity: 0,y:50 }} animate={{ opacity: 1,y:0 }} transition={{ duration: 1.5 }}>
     <Navbar />
     <div className="container text-center mt-5">
       <h1 className="mb-4">Carbon Footprint Calculator</h1>

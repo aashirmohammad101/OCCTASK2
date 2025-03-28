@@ -1,0 +1,28 @@
+/* filepath: c:\Users\student\Desktop\OCCTASK2\frontend\src\styles\Yourbookings.css */
+.your-bookings {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.your-bookings h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.your-bookings ul {
+    list-style: none;
+    padding: 0;
+}
+
+.your-bookings li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.your-bookings .error {
+    color: red;
+    text-align: center;
+}
