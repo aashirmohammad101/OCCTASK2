@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Solar Panel",
+      "price": 149.99,
+      "image": "1.jpg",
+      "description": "A solar panel is a device that converts sunlight into electricity.",
+      "category": "Solar"
+    },
+    {
+      "id": "2",
+      "name": "Smart Thermostat",
+      "price": 34.99,
+      "image": "2.png",
+      "description": "A smart thermostat is a device that allows you to control the temperature of your home or office.",
+      "category": "Smart Home"
+    },
+    {
+      "id": "3",
+      "name": "Smart Lock",
+      "price": 49.99,
+      "image": "3.jpg",
+      "description": "A smart lock is a device that allows you to lock and unlock your door. It is a key component of a smart home system.",
+      "category": "Smart Home"
+    },
+    {
+      "id": "4",
+      "name": "Smart Plug",
+      "price": 39.99,
+      "image": "4.jpg",
+      "description": "A smart plug is a device that allows you to plug in your devices and control them from anywhere.",
+      "category": "Smart Home"
+    },
+    {
+      "id": "5",
+      "name": "Home Energy Monitor",
+      "price": 129.99,
+      "image": "5.jpg",
+      "description": "Track your home's energy usage in real-time and identify which appliances are costing you the most.",
+      "category": "Monitoring"
+    },
+    {
+      "id": "6",
+      "name": "EV Charger",
+      "price": 79.99,
+      "image": "6.jpg",
+      "description": "An EV charger is a device that allows you to charge your electric vehicle. It is a key component of a smart home system.",
+      "category": "Charging"
+    },
+    {
+      "id": "7",
+      "name": "Energy Efficient Shower Head",
+      "price": 45.99,
+      "image": "1.jpg",
+      "description": "Reduce water usage by up to 40% while maintaining strong water pressure for a satisfying shower experience.",
+      "category": "Water Saving"
+    },
+    {
+      "id": "8",
+      "name": "Smart Light Switch",
+      "price": 32.99,
+      "image": "2.png",
+      "description": "Control your lights from anywhere and set schedules to ensure you never waste electricity on empty rooms.",
+      "category": "Smart Home"
+    },
+    {
+      "id": "9",
+      "name": "Portable Wind Turbine",
+      "price": 159.99,
+      "image": "3.jpg",
+      "description": "Generate clean energy outdoors with this compact wind turbine perfect for camping and off-grid adventures.",
+      "category": "Renewable Energy"
+    },
+    {
+      "id": "10",
+      "name": "Energy Saving Refrigerator Thermometer",
+      "price": 19.99,
+      "image": "4.jpg",
+      "description": "Optimize your refrigerator temperature to reduce energy consumption while keeping food fresh.",
+      "category": "Monitoring"
+    },
+    {
+      "id": "11",
+      "name": "Weatherproofing Door and Window Kit",
+      "price": 24.99,
+      "image": "/5.jpg",
+      "description": "Stop drafts and reduce heating costs with this complete kit for sealing doors and windows.",
+      "category": "Insulation"
+    },
+    {
+      "id": "12",
+      "name": "USB Rechargeable Batteries (Pack of 8)",
+      "price": 39.99,
+      "image": "6.jpg",
+      "description": "Eliminate disposable battery waste with these USB rechargeable batteries that can be reused up to 1000 times.",
+      "category": "Batteries"
+    }
+  ]
+} 

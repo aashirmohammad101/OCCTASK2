@@ -1,6 +1,7 @@
 // App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CookiesProvider } from 'react-cookie';
 import HomePage from "./pages/Homepage.jsx"
 import RegisterPage from "./pages/Registerpage.jsx"
 import LoginPage from "./pages/Loginpage.jsx"
@@ -17,29 +18,30 @@ import Shop from "./pages/Shop.jsx";
 import EnergyUsage from "./pages/Energyusage.jsx";
 import EnergyHistory from "./pages/Energyhistory.jsx";
 
-
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Route for the main page */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/booking" element={<BookingPage />} />
-        <Route path="/contactus" element={<ContactPage />} />
-        <Route path="/carboncalculator" element={<Carboncalculator />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/ourservices" element={<Services />} />
-        <Route path="/yourbookings" element={<Yourbookings />} />
-        <Route path="/youraccount" element={<Youraccount />} />
-        <Route path="/evchargingmap" element={<EVchargingmap />} />
-        <Route path="/bookingreceipt" element={<Bookingreceipt />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/energy-usage" element={<EnergyUsage />} />
-        <Route path="/energy-history" element={<EnergyHistory />} />
-      </Routes>
-    </Router>
+    <CookiesProvider>
+      <Router>
+        <Routes>
+          {/* Route for the main page */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/contactus" element={<ContactPage />} />
+          <Route path="/carboncalculator" element={<Carboncalculator />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/ourservices" element={<Services />} />
+          <Route path="/yourbookings" element={<Yourbookings />} />
+          <Route path="/youraccount" element={<Youraccount />} />
+          <Route path="/evchargingmap" element={<EVchargingmap />} />
+          <Route path="/bookingreceipt" element={<Bookingreceipt />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/energy-usage" element={<EnergyUsage />} />
+          <Route path="/energy-history" element={<EnergyHistory />} />
+        </Routes>
+      </Router>
+    </CookiesProvider>
   );
 }
 export default App;

@@ -5,12 +5,14 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { IoMdMenu } from "react-icons/io";
+import { FaShoppingCart } from "react-icons/fa";
 import logo from "../components/logo.png";
 
-const Navbar = () => {
+const Navbar = ({ cartItemCount = 0, onCartClick }) => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [show, setShow] = useState(false);
+    const [cart, setCart] = useState([]);
     const handleClose = () => setShow(false);
     const toggleShow = () => setShow((s) => !s);
     const navigate = useNavigate();
@@ -24,6 +26,29 @@ const Navbar = () => {
         if (user && user.name) {
             setName(user.name);
         }
+
+        // Get cart from localStorage
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) {
+            setCart(JSON.parse(savedCart));
+        }
+    }, []);
+
+    // Update cart when it changes in localStorage
+    useEffect(() => {
+        const handleStorageChange = () => {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                setCart(JSON.parse(savedCart));
+            } else {
+                setCart([]);
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
     }, []);
 
     const handleLogout = () => {
@@ -33,6 +58,19 @@ const Navbar = () => {
         setEmail(''); // Reset email state
         window.location.reload();
         navigate('/login'); // Redirect to login page
+    };
+
+    const getCartItemCount = () => {
+        return cart.reduce((total, item) => total + (item.quantity || 0), 0);
+    };
+
+    const handleCartClick = (e) => {
+        e.preventDefault();
+        if (onCartClick) {
+            onCartClick();
+        } else {
+            navigate('/shop');
+        }
     };
 
     return (
@@ -92,6 +130,16 @@ const Navbar = () => {
                     <span>
                         Signed in as: <span style={{ color: "green"}}>{name || "Guest"}</span>
                     </span>
+                </div>
+                <div className="cart-icon-container">
+                    <button className="cart-button" onClick={handleCartClick}>
+                        <FaShoppingCart />
+                        {(cartItemCount > 0 || getCartItemCount() > 0) && (
+                            <span className="cart-count">
+                                {cartItemCount || getCartItemCount()}
+                            </span>
+                        )}
+                    </button>
                 </div>
             </div>
         </nav>

@@ -43,7 +43,7 @@ const HomePage = () => {
           <div className="image-card-content">
             <h2>Shop</h2>
             <p>Shop our products with the lowest prices</p>
-            <Link to="/learn-more">
+            <Link to="/shop">
               <button className="image-card-button">Shop Now</button>
             </Link>
           </div>

@@ -41,7 +41,8 @@ mongoose.connection.on('disconnected', () => {
 const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    name: { type: String, required: true }
+    name: { type: String, required: true },
+    cart: { type: Array, default: [] }
 });
 
 const User = mongoose.model('User', userSchema);
@@ -59,7 +60,24 @@ const bookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.model('Booking', bookingSchema);
 
+// Order Schema
+const orderItemSchema = new mongoose.Schema({
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    price: { type: Number, required: true },
+    quantity: { type: Number, required: true },
+    image: { type: String, required: true }
+});
 
+const orderSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    items: [orderItemSchema],
+    totalAmount: { type: Number, required: true },
+    createdAt: { type: Date, default: Date.now },
+    status: { type: String, default: 'Completed', enum: ['Pending', 'Processing', 'Completed', 'Cancelled'] }
+});
+
+const Order = mongoose.model('Order', orderSchema);
 
 // Register
 app.post('/api/register', async (req, res) => {
@@ -181,6 +199,51 @@ app.get('/api/bookings/user', async (req, res) => {
     }
 });
 
+// Create Order
+app.post('/api/orders', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const { items, totalAmount } = req.body;
+
+        if (!items || !items.length || !totalAmount) {
+            return res.status(400).json({ message: 'Invalid order data' });
+        }
+
+        const order = new Order({
+            userId: decoded.userId,
+            items,
+            totalAmount
+        });
+
+        await order.save();
+        res.status(201).json({ message: 'Order placed successfully', order });
+    } catch (error) {
+        console.error('Order creation error:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+});
+
+// Get User Orders
+app.get('/api/orders/user', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+        
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const orders = await Order.find({ userId: decoded.userId }).sort({ createdAt: -1 });
+        res.json(orders);
+    } catch (error) {
+        console.error('Error retrieving user orders:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
@@ -234,3 +297,5 @@ app.put('/api/user/password', async (req, res) => {
         res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
+
+// Cart endpoints
