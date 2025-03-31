@@ -12,10 +12,9 @@ function BookingPage() {
     email: '',
     date: '',
     time: '',
-    bookingType: 'Normal Consultation' // Default booking type
+    bookingType: '' // Default booking type
   });
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
   // List of available timeslots
@@ -55,14 +54,7 @@ function BookingPage() {
           'Authorization': `Bearer ${token}`
         }
       });
-      setSuccess('Booking created successfully!');
-      setFormData({
-        name: formData.name, // Keep the user's name
-        email: formData.email, // Keep the user's email
-        date: '',
-        time: '',
-        bookingType: '' // Reset to default booking type
-      });
+      navigate('/bookingreceipt', { state: response.data.booking }); // Navigate to BookingReceipt with booking details
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred while creating the booking');
     }
@@ -79,7 +71,6 @@ function BookingPage() {
                 <div className="card mt-5 p-4 shadow-lg">
                   <h2 className="text-center text-green mb-4">Book Your Consultation</h2>
                   {error && <div className="alert alert-danger">{error}</div>}
-                  {success && <div className="alert alert-success">{success}</div>}
                   <form onSubmit={handleSubmit}>
                     {/* Name Input */}
                     <div className="mb-3">

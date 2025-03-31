@@ -35,19 +35,21 @@ const services = [
 const Services = () => {
   return (
     <div className="page">
-      <motion.p initial={{ opacity: 0,y:50 }} animate={{ opacity: 1,y:0 }} transition={{ duration: 1 }}>
+      <motion.p initial={{ opacity: 0,y:50 }} animate={{ opacity: 1,y:0 }} transition={{ duration: 1 }} >
         <Navbar />
         <div className="services-container">
           <div className="services-header">
             <h1>Our Services</h1>
           </div>
-          <div className="services-grid">
+          < div className="services-grid">
             {services.map((service, index) => (
-              <div className="service-card" key={index}>
+              <motion.div className="service-card" key={index} 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}>
                 <img src={service.image} alt={service.title} />
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

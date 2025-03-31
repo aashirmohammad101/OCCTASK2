@@ -59,7 +59,7 @@ const bookingSchema = new mongoose.Schema({
 
 const Booking = mongoose.model('Booking', bookingSchema);
 
-// Routes with better error handling
+
 
 // Register
 app.post('/api/register', async (req, res) => {
@@ -118,7 +118,7 @@ app.post('/api/login', async (req, res) => {
         const token = jwt.sign(
             { userId: user._id },
             process.env.JWT_SECRET,
-            { expiresIn: '7h' }
+            { expiresIn: '6h' }
         );
 
         console.log('Login successful for:', email);
@@ -181,6 +181,7 @@ app.get('/api/bookings/user', async (req, res) => {
     }
 });
 
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
@@ -205,6 +206,31 @@ app.delete('/api/bookings/:id', async (req, res) => {
         res.status(200).json({ message: 'Booking canceled successfully' });
     } catch (error) {
         console.error('Error canceling booking:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+});
+
+app.put('/api/user/password', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const { newPassword } = req.body;
+
+        if (!newPassword || newPassword.length < 6) {
+            return res.status(400).json({ message: 'Password must be at least 6 characters long.' });
+        }
+
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+        await User.findByIdAndUpdate(decoded.userId, { password: hashedPassword });
+
+        res.status(200).json({ message: 'Password updated successfully.' });
+    } catch (error) {
+        console.error('Error updating password:', error);
         res.status(500).json({ message: 'Server error', error: error.message });
     }
 });

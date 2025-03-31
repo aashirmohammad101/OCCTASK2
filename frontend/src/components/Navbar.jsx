@@ -49,11 +49,9 @@ const Navbar = () => {
                         <hr style={{ width: "65px" }} />
                         <Link to="/youraccount" onClick={handleClose}>Account</Link>
                         <hr style={{ width: "65px" }} />
-                        <Link to="/yourbookings" onClick={handleClose}>Your Bookings</Link>
+                        <Link to="/yourbookings" onClick={handleClose}>View Your Bookings</Link>
                         <hr style={{ width: "110px" }} />
-                        <Link to="/" onClick={handleClose}>Shop Our Products</Link>
-                        <hr style={{ width: "145px" }} />
-                        <Link to="/" onClick={handleClose}>Carbon Footprint History</Link>
+                        <Link to="/shop" onClick={handleClose}>Shop Our Products</Link>
                         <hr style={{ width: "192px" }} />
                         <Link to="/" onClick={handleClose}>Your energy usage history</Link>
                         <hr style={{ width: "220px" }} />
@@ -86,13 +84,13 @@ const Navbar = () => {
                 </Button>
                 <div className="navbar-links">
                     <Link to="/booking">Book your consultation</Link>
-                    <Link to="/">Shop our products</Link>
+                    <Link to="/shop">Shop our products</Link>
                     <Link to="/ourservices">Our services</Link>
+                    <Link to="/">Home</Link>
                     <Link to="/carboncalculator">Calculate your carbon footprint</Link>
                     <Link to="/">Track your energy usage</Link>
-                    <Link to="/">Home</Link>
                     <span>
-                        Signed in as: <span style={{ color: "green" }}>{name || "Guest"}</span>
+                        Signed in as: <span style={{ color: "green"}}>{name || "Guest"}</span>
                     </span>
                 </div>
             </div>

@@ -33,6 +33,10 @@
     text-align: left;
   }
 
+  .station-list li:hover {
+    color: #1e8327;
+  }
+
 .cta-section {
   margin-top: 30px;
   padding: 20px;

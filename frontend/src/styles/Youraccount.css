@@ -7,6 +7,8 @@
 
 .your-account h1 {
     margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .account-details {
@@ -20,4 +22,84 @@
 .account-details p {
     margin: 10px 0;
     font-size: 16px;
+}
+
+.account-form {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.save-btn, .cancel-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.save-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.cancel-btn {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.password-field {
+    display: flex;
+    align-items: center;
+}
+
+.edit-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.edit-icon:hover {
+    color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
 }

@@ -35,6 +35,7 @@ const CarbonFootprintCalculator = () => {
                 className="form-control"
                 placeholder={`Enter ${key} footprint`} 
                 onChange={handleChange} 
+                required
               />
             </div>
           ))}

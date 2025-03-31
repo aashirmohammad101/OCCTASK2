@@ -1,15 +1,15 @@
 [
     {
       "name": "Tesla Supercharger - London",
-      "latitude": 51.5074,
-      "longitude": -0.1278,
-      "address": "Central London, London, England"
+      "latitude": 51.506634165940476, 
+      "longitude": -0.22205031083050475,
+      "address": "Westfield, London, England"
     },
     {
       "name": "Tesla Supercharger - Birmingham",
       "latitude": 52.4862,
       "longitude": -1.8904,
-      "address": "Birmingham City Centre, Birmingham, England"
+      "address": "Birmingham City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Manchester",
@@ -21,7 +21,7 @@
       "name": "Tesla Supercharger - Leeds",
       "latitude": 53.8008,
       "longitude": -1.5491,
-      "address": "Leeds City Centre, Leeds, England"
+      "address": "Leeds City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Liverpool",
@@ -33,235 +33,235 @@
       "name": "Tesla Supercharger - Bristol",
       "latitude": 51.4545,
       "longitude": -2.5879,
-      "address": "Bristol City Centre, Bristol, England"
+      "address": "Bristol City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Sheffield",
       "latitude": 53.3811,
       "longitude": -1.4701,
-      "address": "Sheffield City Centre, Sheffield, England"
+      "address": "Sheffield City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Nottingham",
       "latitude": 52.9548,
       "longitude": -1.1581,
-      "address": "Nottingham City Centre, Nottingham, England"
+      "address": "Nottingham City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Cambridge",
       "latitude": 52.2053,
       "longitude": 0.1218,
-      "address": "Cambridge City Centre, Cambridge, England"
+      "address": "Cambridge City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Oxford",
       "latitude": 51.7547,
       "longitude": -1.2544,
-      "address": "Oxford City Centre, Oxford, England"
+      "address": "Oxford City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Southampton",
       "latitude": 50.9097,
       "longitude": -1.4044,
-      "address": "Southampton City Centre, Southampton, England"
+      "address": "Southampton City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Newcastle",
       "latitude": 54.9783,
       "longitude": -1.6174,
-      "address": "Newcastle City Centre, Newcastle, England"
+      "address": "Newcastle City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Norwich",
       "latitude": 52.6309,
       "longitude": 1.2974,
-      "address": "Norwich City Centre, Norwich, England"
+      "address": "Norwich City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Coventry",
       "latitude": 52.4068,
       "longitude": -1.5100,
-      "address": "Coventry City Centre, Coventry, England"
+      "address": "Coventry City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Derby",
       "latitude": 52.9226,
       "longitude": -1.4746,
-      "address": "Derby City Centre, Derby, England"
+      "address": "Derby City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Sunderland",
       "latitude": 54.9080,
       "longitude": -1.3833,
-      "address": "Sunderland City Centre, Sunderland, England"
+      "address": "Sunderland City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Wakefield",
       "latitude": 53.6824,
       "longitude": -1.4979,
-      "address": "Wakefield City Centre, Wakefield, England"
+      "address": "Wakefield City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Hull",
       "latitude": 53.7416,
       "longitude": -0.3340,
-      "address": "Hull City Centre, Hull, England"
+      "address": "Hull City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Luton",
       "latitude": 51.8787,
       "longitude": -0.4173,
-      "address": "Luton City Centre, Luton, England"
+      "address": "Luton City Centre,, England"
     },
     {
       "name": "Tesla Supercharger - Milton Keynes",
       "latitude": 51.9831,
       "longitude": -0.7621,
-      "address": "Milton Keynes City Centre, Milton Keynes, England"
+      "address": "Milton Keynes City Centre,, England"
     },
     {
       "name": "Tesla Supercharger - Peterborough",
       "latitude": 52.5732,
       "longitude": -0.2405,
-      "address": "Peterborough City Centre, Peterborough, England"
+      "address": "Peterborough City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Brighton",
       "latitude": 50.8225,
       "longitude": -0.1372,
-      "address": "Brighton City Centre, Brighton, England"
+      "address": "Brighton City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Leicester",
       "latitude": 52.6369,
       "longitude": -1.1398,
-      "address": "Leicester City Centre, Leicester, England"
+      "address": "Leicester City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Swindon",
       "latitude": 51.5580,
       "longitude": -1.7799,
-      "address": "Swindon City Centre, Swindon, England"
+      "address": "Swindon City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Reading",
       "latitude": 51.4543,
       "longitude": -0.9784,
-      "address": "Reading City Centre, Reading, England"
+      "address": "Reading City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Slough",
       "latitude": 51.5110,
       "longitude": -0.5950,
-      "address": "Slough City Centre, Slough, England"
+      "address": "Slough City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Bath",
       "latitude": 51.3810,
       "longitude": -2.3590,
-      "address": "Bath City Centre, Bath, England"
+      "address": "Bath City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Exeter",
       "latitude": 50.7184,
       "longitude": -3.5339,
-      "address": "Exeter City Centre, Exeter, England"
+      "address": "Exeter City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Chester",
       "latitude": 53.1910,
       "longitude": -2.8925,
-      "address": "Chester City Centre, Chester, England"
+      "address": "Chester City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Woking",
       "latitude": 51.3187,
       "longitude": -0.5590,
-      "address": "Woking City Centre, Woking, England"
+      "address": "Woking City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Ipswich",
       "latitude": 52.0590,
       "longitude": 1.1558,
-      "address": "Ipswich City Centre, Ipswich, England"
+      "address": "Ipswich City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Dover",
       "latitude": 51.1290,
       "longitude": 1.3140,
-      "address": "Dover City Centre, Dover, England"
+      "address": "Dover City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Harlow",
       "latitude": 51.7815,
       "longitude": 0.1211,
-      "address": "Harlow City Centre, Harlow, England"
+      "address": "Harlow City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Carlisle",
       "latitude": 54.8949,
       "longitude": -2.9333,
-      "address": "Carlisle City Centre, Carlisle, England"
+      "address": "Carlisle City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Milton",
       "latitude": 52.2290,
       "longitude": -0.6673,
-      "address": "Milton City Centre, Milton, England"
+      "address": "Milton City Centre, England"
     },
     {
       "name": "Tesla Supercharger - St Albans",
       "latitude": 51.7487,
       "longitude": -0.3305,
-      "address": "St Albans City Centre, St Albans, England"
+      "address": "St Albans City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Maidstone",
       "latitude": 51.2707,
       "longitude": 0.5227,
-      "address": "Maidstone City Centre, Maidstone, England"
+      "address": "Maidstone City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Tunbridge Wells",
       "latitude": 51.1375,
       "longitude": 0.2629,
-      "address": "Tunbridge Wells City Centre, Tunbridge Wells, England"
+      "address": "Tunbridge Wells City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Blackpool",
       "latitude": 53.8178,
       "longitude": -3.0361,
-      "address": "Blackpool City Centre, Blackpool, England"
+      "address": "Blackpool City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Wolverhampton",
       "latitude": 52.5867,
       "longitude": -2.1281,
-      "address": "Wolverhampton City Centre, Wolverhampton, England"
+      "address": "Wolverhampton City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Telford",
       "latitude": 52.7060,
       "longitude": -2.4466,
-      "address": "Telford City Centre, Telford, England"
+      "address": "Telford City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Darlington",
       "latitude": 54.5374,
       "longitude": -1.5516,
-      "address": "Darlington City Centre, Darlington, England"
+      "address": "Darlington City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Grantham",
       "latitude": 52.9120,
       "longitude": -0.6422,
-      "address": "Grantham City Centre, Grantham, England"
+      "address": "Grantham City Centre, England"
     },
     {
       "name": "Tesla Supercharger - Kettering",
       "latitude": 52.3997,
       "longitude": -0.7292,
-      "address": "Kettering City Centre, Kettering, England"
+      "address": "Kettering City Centre, England"
     }
   ]
   

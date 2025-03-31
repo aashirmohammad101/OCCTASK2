@@ -23,7 +23,7 @@ const HomePage = () => {
         Welcome to Rolsa
       </motion.h1>
 
-      <motion.p style={{ color: 'black', marginTop: "0px" }}
+      <motion.p style={{ color: 'black', marginTop: "0px",fontSize:"18px" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}>
@@ -53,7 +53,7 @@ const HomePage = () => {
           <div className="image-card-content">
             <h2>Book an installation</h2>
             <p>Book an installation with us</p>
-            <Link to="/learn-more">
+            <Link to="/booking">
               <button className="image-card-button">Book Now</button>
             </Link>
           </div>
@@ -73,7 +73,7 @@ const HomePage = () => {
             { title: "Lowest Prices", desc: "By buying in bulk, we offer the best prices." },
             { title: "Impartial Advice", desc: "Our friendly solar experts help you choose the best product." },
             { title: "Recommended", desc: "Award-winning customer satisfaction." },
-            { title: "Unique Price Guarantee", desc: "We beat any like-for-like quote by £100." },
+            { title: "Price Guarantee", desc: "We beat any like-for-like quote by £100." },
             { title: "Quality Control", desc: "100% audited installations." },
             { title: "Fast Installations", desc: "We install in as little as 2-4 weeks." },
           ].map((reason, index) => (
