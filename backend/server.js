@@ -79,6 +79,17 @@ const orderSchema = new mongoose.Schema({
 
 const Order = mongoose.model('Order', orderSchema);
 
+// Energy Usage Schema
+const energyUsageSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    date: { type: Date, default: Date.now },
+    appliances: { type: Array, required: true }, // Array of { name, usage (kWh) }
+    totalUsage: { type: Number, required: true },
+    totalCost: { type: Number, required: true }
+});
+
+const EnergyUsage = mongoose.model('EnergyUsage', energyUsageSchema);
+
 // Register
 app.post('/api/register', async (req, res) => {
     try {
@@ -199,6 +210,40 @@ app.get('/api/bookings/user', async (req, res) => {
     }
 });
 
+// Update Booking
+app.put('/api/bookings/:id', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const { date, time, bookingType } = req.body;
+
+        if (!date || !time || !bookingType) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
+        const booking = await Booking.findOne({ _id: req.params.id, userId: decoded.userId });
+
+        if (!booking) {
+            return res.status(404).json({ message: 'Booking not found' });
+        }
+
+        booking.date = date;
+        booking.time = time;
+        booking.bookingType = bookingType;
+
+        await booking.save();
+
+        res.status(200).json({ message: 'Booking updated successfully', booking });
+    } catch (error) {
+        console.error('Error updating booking:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+});
+
 // Create Order
 app.post('/api/orders', async (req, res) => {
     try {
@@ -241,6 +286,76 @@ app.get('/api/orders/user', async (req, res) => {
         res.json(orders);
     } catch (error) {
         console.error('Error retrieving user orders:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+});
+
+// Add Energy Usage
+app.post('/api/energy-usage', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const { appliances, totalUsage, totalCost } = req.body;
+
+        if (!appliances || !totalUsage || !totalCost) {
+            return res.status(400).json({ message: 'Invalid data' });
+        }
+
+        const energyUsage = new EnergyUsage({
+            userId: decoded.userId,
+            appliances,
+            totalUsage,
+            totalCost
+        });
+
+        await energyUsage.save();
+        res.status(201).json({ message: 'Energy usage saved successfully', energyUsage });
+    } catch (error) {
+        console.error('Error saving energy usage:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+});
+
+// Get Energy Usage History
+app.get('/api/energy-usage', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const energyUsageHistory = await EnergyUsage.find({ userId: decoded.userId }).sort({ date: -1 });
+        res.json(energyUsageHistory);
+    } catch (error) {
+        console.error('Error retrieving energy usage history:', error);
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+});
+
+// Delete Energy Usage Entry
+app.delete('/api/energy-usage/:id', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const energyUsage = await EnergyUsage.findOne({ _id: req.params.id, userId: decoded.userId });
+
+        if (!energyUsage) {
+            return res.status(404).json({ message: 'Energy usage entry not found' });
+        }
+
+        await EnergyUsage.deleteOne({ _id: req.params.id });
+        res.status(200).json({ message: 'Energy usage entry deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting energy usage entry:', error);
         res.status(500).json({ message: 'Server error', error: error.message });
     }
 });

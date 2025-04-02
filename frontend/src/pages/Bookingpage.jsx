@@ -12,7 +12,7 @@ function BookingPage() {
     email: '',
     date: '',
     time: '',
-    bookingType: '' // Default booking type
+    bookingType: 'Normal Consultation' // Default booking type
   });
   const [error, setError] = useState('');
   const navigate = useNavigate();

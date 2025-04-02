@@ -36,6 +36,12 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
   return R * c; // Distance in km
 };
 
+// Validate UK postcode
+const isValidUKPostcode = (postcode) => {
+  const ukPostcodeRegex = /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/i;
+  return ukPostcodeRegex.test(postcode.trim());
+};
+
 const EVChargingMap = () => {
   const [stations, setStations] = useState([]);
   const [sortedStations, setSortedStations] = useState([]);
@@ -72,12 +78,18 @@ const EVChargingMap = () => {
       return;
     }
 
+    // Validate UK postcode
+    if (!isValidUKPostcode(userAddress)) {
+      alert("Please enter a valid UK postcode.");
+      return;
+    }
+
     try {
       const response = await fetch(
         `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
           userAddress
         )}&key=284306e94f6c46c7872bf6bc2f5a3ec9`
-      ); // Replace YOUR_API_KEY with your OpenCage API key
+      );
       const data = await response.json();
 
       if (data.results.length > 0) {
@@ -128,7 +140,7 @@ const EVChargingMap = () => {
           {/* User Address Input */}
           <div style={{ marginBottom: "36px",marginLeft:"5px" }}>
             <label style={{fontWeight:"bold"}}>
-              Enter Address or Postcode:
+              Enter Postcode:
               <input 
                 type="text"
                 value={userAddress}

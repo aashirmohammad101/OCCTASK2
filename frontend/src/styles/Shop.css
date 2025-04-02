@@ -247,7 +247,7 @@
   align-items: center;
   width: 28px;
   height: 28px;
-  background-color: var(--nike-gray);
+  background-color: black;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -256,7 +256,7 @@
 }
 
 .quantity-controls button:hover {
-  background-color: #e0e0e0;
+  background-color: #837676;
 }
 
 .item-quantity {

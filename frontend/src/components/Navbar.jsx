@@ -87,11 +87,13 @@ const Navbar = ({ cartItemCount = 0, onCartClick }) => {
                         <hr style={{ width: "65px" }} />
                         <Link to="/youraccount" onClick={handleClose}>Account</Link>
                         <hr style={{ width: "65px" }} />
+                        <Link to="/your-orders" onClick={handleClose}>Your Orders</Link>
+                        <hr style={{ width: "65px" }} />
                         <Link to="/yourbookings" onClick={handleClose}>View Your Bookings</Link>
                         <hr style={{ width: "110px" }} />
                         <Link to="/shop" onClick={handleClose}>Shop Our Products</Link>
                         <hr style={{ width: "192px" }} />
-                        <Link to="/" onClick={handleClose}>Your energy usage history</Link>
+                        <Link to="/energy-history" onClick={handleClose}>Your energy usage history</Link>
                         <hr style={{ width: "220px" }} />
                         <Link to="/evchargingmap" onClick={handleClose}>EV Charging Stations</Link>
                         <hr style={{ width: "220px" }} />
@@ -126,7 +128,7 @@ const Navbar = ({ cartItemCount = 0, onCartClick }) => {
                     <Link to="/ourservices">Our services</Link>
                     <Link to="/">Home</Link>
                     <Link to="/carboncalculator">Calculate your carbon footprint</Link>
-                    <Link to="/">Track your energy usage</Link>
+                    <Link to="/energy-usage">Track your energy usage</Link>
                     <span>
                         Signed in as: <span style={{ color: "green"}}>{name || "Guest"}</span>
                     </span>

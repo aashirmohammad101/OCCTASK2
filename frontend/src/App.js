@@ -17,6 +17,7 @@ import Bookingreceipt from "./pages/Bookingreceipt.jsx";
 import Shop from "./pages/Shop.jsx";
 import EnergyUsage from "./pages/Energyusage.jsx";
 import EnergyHistory from "./pages/Energyhistory.jsx";
+import Yourorders from "./pages/Yourorders.jsx";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/energy-usage" element={<EnergyUsage />} />
           <Route path="/energy-history" element={<EnergyHistory />} />
+          <Route path="/your-orders" element={<Yourorders />} />
         </Routes>
       </Router>
     </CookiesProvider>

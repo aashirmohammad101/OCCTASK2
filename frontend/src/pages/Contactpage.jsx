@@ -27,6 +27,7 @@ const ContactForm = () => {
   return (
     <div className="contact-page">
       <Navbar />
+      <h1 style={{marginTop:"40px", marginBottom:"-50px"}}>Contact Us</h1>
       <motion.div
         className="contact-container"
         initial={{ opacity: 0,y:50 }}
@@ -38,6 +39,7 @@ const ContactForm = () => {
           <p>Don’t hesitate to send us a message</p>
         </div>
         <div className="contact-right">
+
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
               <label htmlFor="name">Name</label>

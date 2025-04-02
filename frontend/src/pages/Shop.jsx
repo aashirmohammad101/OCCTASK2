@@ -255,7 +255,7 @@ const Shop = () => {
                     </div>
                     <div className="cart-item-details">
                       <h4>{item.name}</h4>
-                      <p className="item-price">${item.price}</p>
+                      <p className="item-price">£{item.price}</p>
                       <div className="quantity-controls">
                         <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
                           <FaMinus />
@@ -279,7 +279,7 @@ const Shop = () => {
               <div className="cart-summary">
                 <div className="subtotal">
                   <span>Subtotal:</span>
-                  <span>${getTotalPrice().toFixed(2)}</span>
+                  <span>£{getTotalPrice().toFixed(2)}</span>
                 </div>
                 <button 
                   className="checkout-btn"

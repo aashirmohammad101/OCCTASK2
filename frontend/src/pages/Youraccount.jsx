@@ -53,7 +53,7 @@ const YourAccount = () => {
 
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-            <div>
+            <div className='page'>
                 <Navbar />
                 <div className="your-account">
                     <h1>Account Settings</h1>
@@ -62,6 +62,10 @@ const YourAccount = () => {
                             <div className="form-group">
                                 <label>Name</label>
                                 <input type="text" value={user.name || ''} readOnly />
+                            </div>
+                            <div className="form-group">
+                                <label>User ID</label>
+                                <input type="text" value={user.id || ''} readOnly />
                             </div>
                             <div className="form-group">
                                 <label>Email</label>

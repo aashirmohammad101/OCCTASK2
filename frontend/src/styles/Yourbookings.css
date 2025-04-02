@@ -28,7 +28,22 @@
 }
 
 .cancel-button {
-    background-color: #e53935; /* Red color for cancel button */
+    background-color: #e53935; /* Red for cancel button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #c62828; /* Darker red on hover */
+}
+
+.save-button {
+    background-color: #4caf50; /* Green for save button */
     color: white;
     border: none;
     border-radius: 5px;
@@ -37,6 +52,6 @@
     margin-top: 10px;
 }
 
-.cancel-button:hover {
-    background-color: #c62828; /* Darker red on hover */
+.save-button:hover {
+    background-color: #388e3c; /* Darker green on hover */
 }
